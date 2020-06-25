@@ -9,6 +9,9 @@ MFRC522 mfrc522(SS_PIN, RST_PIN);   // Create MFRC522 instance.
 MFRC522::MIFARE_Key key1A = {keyByte: {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF}};
 MFRC522::MIFARE_Key key1B = {keyByte: {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF}};
 
+//MFRC522::MIFARE_Key key1A = {keyByte: {0x10, 0xFF, 0x0F, 0x19, 0xC1, 0xAB}};
+//MFRC522::MIFARE_Key key1B = {keyByte: {0xEE, 0xF2, 0xBE, 0x4F, 0x9B, 0xFA}};
+
 char userInput;
 
 /**
@@ -50,9 +53,18 @@ void loop() {
       readBlock(1,4);
       }
 
-    else if (userInput=='c'){
-      readBlock(2,9);
-    }
+    if (userInput=='c'){
+      readBlock(1,5);
+      }
+    if (userInput=='d'){
+      readBlock(1,6);
+      }
+    if (userInput=='e'){
+      readBlock(3,12);
+      }
+    if (userInput=='f'){
+      readBlock(3,13);
+      }
   }
 }
 
